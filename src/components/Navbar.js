@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 export default function Navbar(props) {
   return (
-    <nav className={`navbar navbar-expand-lg navbar-${props.mode}  bg-${props.mode}`}>
+    <nav className={`navbar navbar-expand-lg ${props.mode === "darkBlue" ? "navbar-dark custom-darkblue-bg" : `navbar-${props.mode} bg-${props.mode}`}`}>
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
           {props.title}
@@ -32,20 +32,10 @@ export default function Navbar(props) {
               </a>
             </li>
           </ul>
-          {/* <form className="d-flex" role="search">
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button className="btn btn-outline-success" type="submit">
-              Search
-            </button>
-          </form> */}
-          <div className={`form-check form-switch text-${props.mode === "light" ? "dark" : "light"}`}>
-            <input className="form-check-input" onClick={props.toggleMode} type="checkbox" role="switch" id="switchCheckDefault" />
-            <label className="form-check-label" htmlFor="switchCheckDefault">Enable Dark Mode</label>
+          <div className={`d-flex`}>
+            <button onClick={() => props.toggleMode('light')} className="btn btn-light mx-1">Light</button>
+            <button onClick={() => props.toggleMode('dark')} className="btn btn-dark mx-1">Dark</button>
+            <button onClick={() => props.toggleMode('darkBlue')} className="btn btn-primary mx-1">Dark Blue</button>
           </div>
         </div>
       </div>

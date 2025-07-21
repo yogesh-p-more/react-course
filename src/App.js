@@ -19,17 +19,22 @@ function App() {
     }, 1500)
   }
 
-  const toggleMode = () => {
-    if (mode === "light") {
-      setMode("dark")
-      document.body.style.backgroundColor = "grey";
-      showAlert("Dark mode has been enable", "success")
-    } else {
-      setMode("light")
-      document.body.style.backgroundColor = "white";
-      showAlert("Light mode has been enable", "success")
-    }
+  const toggleMode = (modeType) => {
+  if (modeType === "dark") {
+    setMode("dark");
+    document.body.style.backgroundColor = "#343a40"; // Bootstrap dark color
+    showAlert("Dark mode has been enabled", "success");
+  } else if (modeType === "darkBlue") {
+    setMode("darkBlue");
+    document.body.style.backgroundColor = "#042743"; // Custom dark blue
+    showAlert("Dark Blue mode has been enabled", "success");
+  } else {
+    setMode("light");
+    document.body.style.backgroundColor = "white";
+    showAlert("Light mode has been enabled", "success");
   }
+};
+
   return (
     <>
       <Navbar title="TextUtils" aboutText="About Us" mode={mode} toggleMode={toggleMode} />
