@@ -11,12 +11,12 @@ export default function TextForm(props) {
   const handleLowClick = () => {
     let newText = text.toLocaleLowerCase();
     setText(newText)
-     props.showAlert("converted to lowercase!", "success")
+    props.showAlert("converted to lowercase!", "success")
   }
   const handleClearClick = () => {
     let newText = "";
     setText(newText)
-     props.showAlert("Cleared text!", "success")
+    props.showAlert("Cleared text!", "success")
   }
   const handleOnChange = (e) => {
     setText(e.target.value)
@@ -75,7 +75,10 @@ export default function TextForm(props) {
 
       <div className="container my-3" style={{ color: props.mode === "dark" ? "white" : "black" }}>
         <h1>Your Text Summary</h1>
-        <p>{text.split(" ").length} <strong>Words</strong> and {text.length} <strong>Characters</strong></p>
+        {/* <p>{text.split(" ").length} <strong>Words</strong> and {text.length} <strong>Characters</strong></p> */}
+        <p>
+          {text.trim().length === 0 ? 0 : text.trim().split(/\s+/).length} <strong>Words</strong> and {text.length} <strong>Characters</strong>
+        </p>
         <p>{0.008 * text.split(" ").length} <strong>Minutes read</strong></p>
         <h2>Preview</h2>
         <p>{text.length > 0 ? text : "Nothing to Preview"}</p>
