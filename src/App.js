@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
 import Alert from "./components/Alert";
 import About from "./components/About";
-import {  Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -15,7 +15,18 @@ function App() {
     setTimeout(() => setAlert(null), 1500);
   };
 
+  const remBodyClasses = ()=>{
+    document.body.classList.remove('bg-light')
+    document.body.classList.remove('bg-primary')
+    document.body.classList.remove('bg-danger')
+    document.body.classList.remove('bg-success')
+    document.body.classList.remove('bg-warning')
+    document.body.classList.remove('bg-dark')
+  }
+
   const toggleMode = (modeType) => {
+    remBodyClasses();
+    document.body.classList.add('bg-' + modeType)
     if (modeType === "dark") {
       setMode("dark");
       document.body.style.backgroundColor = "#343a40";
@@ -38,10 +49,10 @@ function App() {
     <>
       <Navbar title="TextUtils" aboutText="About Us" mode={mode} toggleMode={toggleMode} />
       <Alert alert={alert} />
-        <Routes>
-          <Route path="/" element={<TextForm showAlert={showAlert} heading="Enter the text to analyze below" mode={mode} />} />
-          <Route path="/about-us" element={<About />} />
-        </Routes>
+      <Routes>
+        <Route path="/" element={<TextForm showAlert={showAlert} heading="Enter the text to analyze below" mode={mode} />} />
+        <Route path="/about-us" mode={mode} element={<About />} />
+      </Routes>
 
 
     </>

@@ -34,9 +34,12 @@ export default function Navbar(props) {
             </li>
           </ul>
           <div className={`d-flex`}>
-            <button onClick={() => props.toggleMode('light')} className="btn btn-light mx-1">Light</button>
-            <button onClick={() => props.toggleMode('dark')} className="btn btn-dark mx-1">Dark</button>
-            <button onClick={() => props.toggleMode('darkBlue')} className="btn btn-primary mx-1">Dark Blue</button>
+            <div style={{height:"30px", width:"30px", cursor:"pointer"}} onClick={() => props.toggleMode('primary')} className="bg-primary rounded mx-2"></div>
+            <div style={{height:"30px", width:"30px", cursor:"pointer"}} onClick={() => props.toggleMode('danger')} className="bg-danger rounded mx-2"></div>
+            <div style={{height:"30px", width:"30px", cursor:"pointer"}} onClick={() => props.toggleMode('success')} className="bg-success rounded mx-2"></div>
+            <div style={{height:"30px", width:"30px", cursor:"pointer"}} onClick={() => props.toggleMode('warning')} className="bg-warning rounded mx-2"></div>
+            <div style={{height:"30px", width:"30px", cursor:"pointer"}} onClick={() => props.toggleMode('light')} className="bg-light rounded mx-2"></div>
+            <div style={{height:"30px", width:"30px", cursor:"pointer"}} onClick={() => props.toggleMode('dark')} className="bg-dark rounded mx-2"></div>
           </div>
         </div>
       </div>

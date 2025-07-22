@@ -53,30 +53,35 @@ export default function TextForm(props) {
         <button
           className="btn btn-primary"
           onClick={handleUpClick}
+          disabled={text.length===0}
         >
           Convert to Uppercase
         </button>
         <button
-          className="btn btn-primary mx-1"
+          className="btn btn-primary mx-1 my-1"
           onClick={handleLowClick}
+           disabled={text.length===0}
         >
           Convert to Lowercase
         </button>
         <button
-          className="btn btn-primary mx-1"
+          className="btn btn-primary mx-1 my-1"
           onClick={handleClearClick}
+           disabled={text.length===0}
         >
           Clear
         </button>
         <button
-          className="btn btn-primary mx-1"
+          className="btn btn-primary mx-1 my-1"
           onClick={handleCopy}
+           disabled={text.length===0}
         >
           Copy Text
         </button>
         <button
-          className="btn btn-primary mx-1"
+          className="btn btn-primary mx-1 my-1"
           onClick={handleExtraSpaces}
+           disabled={text.length===0}
         >
           Remove Extra Spaces
         </button>
@@ -89,7 +94,7 @@ export default function TextForm(props) {
         <p>
           {text.trim().length === 0 ? 0 : text.trim().split(/\s+/).length} <strong>Words</strong> and {text.length} <strong>Characters</strong>
         </p>
-        <p>{0.008 * text.split(" ").length} <strong>Minutes read</strong></p>
+        <p>{0.008 * text.trim(" ").length} <strong>Minutes read</strong></p>
         <h2>Preview</h2>
         <p>{text.length > 0 ? text : "Nothing to Preview"}</p>
       </div>
